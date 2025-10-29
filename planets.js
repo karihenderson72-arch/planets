@@ -1,5 +1,13 @@
-const planets = [  { name: "Mercury", temperature: 440, distance: 0.39 },  { name: "Venus", temperature: 737, distance: 0.72 },  { name: "Earth", temperature: 288, distance: 1 },  { name: "Mars", temperature: 253, distance: 1.5 },  { name: "Jupiter", temperature: 163, distance: 5.2 },  { name: "Saturn", temperature: 133, distance: 9.58 },  { name: "Uranus", temperature: 78, distance: 19.22 },  { name: "Neptune", temperature: 73, distance: 30.05 },]; // <-- This MUST be here and on its own line
-const habitablePlanetNames = planets  // 1. Filter the array: Keep only planets that meet ALL criteria  .filter(planet => {    // Check if temperature is between 253 and 323, inclusive    const isCorrectTemperature = (planet.temperature >= 253 && planet.temperature <= 323);
-    // Check if distance is between 0.75 and 1.5, inclusive    const isCorrectDistance = (planet.distance >= 0.75 && planet.distance <= 1.5);
-    // Return true only if both conditions are met    return isCorrectTemperature && isCorrectDistance;  })  // 2. Map the filtered array: Transform the planet objects into an array of just their names  .map(planet => planet.name);
+const planets = [
+  { name: "Mercury", temperature: 440, distance: 0.39 },
+  { name: "Venus", temperature: 737, distance: 0.72 },
+  { name: "Earth", temperature: 288, distance: 1 },
+  { name: "Mars", temperature: 253, distance: 1.5 },
+  { name: "Jupiter", temperature: 163, distance: 5.2 },
+  { name: "Saturn", temperature: 133, distance: 9.58 },
+  { name: "Uranus", temperature: 78, distance: 19.22 },
+  { name: "Neptune", temperature: 73, distance: 30.05 },
+];
+
+const habitablePlanetNames = planets  .filter(planet => {    const isCorrectTemperature = (planet.temperature >= 253 && planet.temperature <= 323);    const isCorrectDistance = (planet.distance >= 0.75 && planet.distance <= 1.5);    return isCorrectTemperature && isCorrectDistance;  })  .map(planet => planet.name);
 console.log(habitablePlanetNames);
